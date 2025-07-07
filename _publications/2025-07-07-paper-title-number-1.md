@@ -1,5 +1,5 @@
 ---
-title: "Integrating external summary information in the presence of prior probability shift: an application to assessing essential hypertension"
+title: "Improving prediction of linear regression models by integrating external information from heterogeneous populations: James–Stein estimators"
 collection: publications
 category: manuscripts
 permalink: /publication/2025-07-07-paper-title-number-1
