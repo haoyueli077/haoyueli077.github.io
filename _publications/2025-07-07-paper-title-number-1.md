@@ -1,7 +1,7 @@
 ---
 title: "Improving prediction of linear regression models by integrating external information from heterogeneous populations: James–Stein estimators"
 collection: publications
-category: manuscripts
+category: articles
 permalink: /publication/2025-07-07-paper-title-number-1
 date: 2024-07-10
 venue: 'Biometrics'
