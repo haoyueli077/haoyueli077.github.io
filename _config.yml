@@ -12,7 +12,7 @@ site_theme               : "default"
 title                    : "Haoyue Li / Personal Website"
 title_separator          : "-"
 name                     : &name "Haoyue Li"
-description              : &description "student in statistics and data science"
+description              : &description "student of great interest in statistics and data science"
 url                      : https://haoyueli077.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io" or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "haoyueli077/haoyueli077.github.io"
@@ -26,23 +26,10 @@ author:
   name             : "Haoyue Li"
   pronouns         : # example: "she/her"  
   bio              : "PhD student in Statistics @ Penn State"
-  location         : "State College, PA"
-  employer         :
-  uri              : # URL
   email            : "hpl5434@psu.edu" 
 
   # Academic websites
-  academia         : # URL
-  arxiv            : # URL - Update with the correct link to your profile
   googlescholar    : "https://scholar.google.com/citations?user=8K-9gTEAAAAJ&hl=en"
-
-  # Repositories and software development
-  bitbucket        : # Username - Update with your username on the site
-  codepen          : # Username
-  dribbble         : # Username
-  github           : "academicpages"
-  kaggle           : # Username  
-  stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
   artstation       : # Username
