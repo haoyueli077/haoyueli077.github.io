@@ -29,7 +29,19 @@ author_profile: true
       {% endunless %}
 
       <div class="publication-entry">
-        <strong>{{ post.authors }}</strong>
+        {% comment %} split authors and bold Haoyue Li {% endcomment %}
+        {% assign authors_field = post.authors | default: post.author %}
+        {% assign authors_list = authors_field | split: ", " %}
+        <span class="publication-authors">
+          {% for author in authors_list %}
+            {% if author == "Haoyue Li" %}
+              <strong>{{ author }}</strong>
+            {% else %}
+              {{ author }}
+            {% endif %}
+            {% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </span>
         {% if post.category == "articles" or post.category == "conferences" %}
           ({{ post.date | date: "%Y" }}).
         {% else %}
@@ -52,7 +64,18 @@ author_profile: true
 {% else %}
   {% for post in site.publications reversed %}
     <div class="publication-entry">
-      <strong>{{ post.authors }}</strong>
+      {% assign authors_field = post.authors | default: post.author %}
+      {% assign authors_list = authors_field | split: ", " %}
+      <span class="publication-authors">
+        {% for author in authors_list %}
+          {% if author == "Haoyue Li" %}
+            <strong>{{ author }}</strong>
+          {% else %}
+            {{ author }}
+          {% endif %}
+          {% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </span>
       {% if post.category == "articles" or post.category == "conferences" %}
         ({{ post.date | date: "%Y" }}).
       {% else %}
@@ -71,6 +94,7 @@ author_profile: true
     </div>
   {% endfor %}
 {% endif %}
+
 
 
 
