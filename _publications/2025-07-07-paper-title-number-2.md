@@ -1,6 +1,6 @@
 ---
 title: "Integrating External Summary Information via James-Stein Shrinkage"
-author: Peisong Han, Haoyue Li, Jeremy MG Taylor
+authors: Peisong Han, Haoyue Li, Jeremy MG Taylor
 collection: publications
 category: manuscripts
 permalink: /publication/2025-07-07-paper-title-number-2
