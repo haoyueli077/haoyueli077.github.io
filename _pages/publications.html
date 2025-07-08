@@ -29,9 +29,7 @@ author_profile: true
       {% endunless %}
 
       <div class="publication-entry">
-        {% comment %} split authors and bold Haoyue Li {% endcomment %}
-        {% assign authors_field = post.authors | default: post.author %}
-        {% assign authors_list = authors_field | split: ", " %}
+        {% assign authors_list = post.authors | split: ", " %}
         <span class="publication-authors">
           {% for author in authors_list %}
             {% if author == "Haoyue Li" %}
@@ -43,14 +41,9 @@ author_profile: true
           {% endfor %}
         </span>
         {% if post.category == "articles" or post.category == "conferences" %}
-          ({{ post.date | date: "%Y" }}).
-        {% else %}
-          .
+          ({{ post.date | date: "%Y" }})
         {% endif %}
-        <em>
-          <a href="{{ post.paperurl }}">{{ post.title }}</a>
-        </em>.
-        {{ post.venue }}.
+        . <em><a href="{{ post.paperurl }}">{{ post.title }}</a></em>. {{ post.venue }}.
         {% if post.slidesurl %}
           <a href="{{ post.slidesurl }}">[Slides]</a>
         {% endif %}
@@ -64,8 +57,7 @@ author_profile: true
 {% else %}
   {% for post in site.publications reversed %}
     <div class="publication-entry">
-      {% assign authors_field = post.authors | default: post.author %}
-      {% assign authors_list = authors_field | split: ", " %}
+      {% assign authors_list = post.authors | split: ", " %}
       <span class="publication-authors">
         {% for author in authors_list %}
           {% if author == "Haoyue Li" %}
@@ -77,14 +69,9 @@ author_profile: true
         {% endfor %}
       </span>
       {% if post.category == "articles" or post.category == "conferences" %}
-        ({{ post.date | date: "%Y" }}).
-      {% else %}
-        .
+        ({{ post.date | date: "%Y" }})
       {% endif %}
-      <em>
-        <a href="{{ post.paperurl }}">{{ post.title }}</a>
-      </em>.
-      {{ post.venue }}.
+      . <em><a href="{{ post.paperurl }}">{{ post.title }}</a></em>. {{ post.venue }}.
       {% if post.slidesurl %}
         <a href="{{ post.slidesurl }}">[Slides]</a>
       {% endif %}
@@ -94,4 +81,5 @@ author_profile: true
     </div>
   {% endfor %}
 {% endif %}
+
 
