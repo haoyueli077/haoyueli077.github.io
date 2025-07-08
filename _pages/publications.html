@@ -5,97 +5,106 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
+{% raw %}{% if site.author.googlescholar %}{% endraw %}
   <div class="wordwrap">
     You can also find my articles on
     <a href="{{ site.author.googlescholar }}">my Google Scholar profile</a>.
   </div>
-{% endif %}
+{% raw %}{% endif %}{% endraw %}
 
-{% include base_path %}
+{% raw %}{% include base_path %}{% endraw %}
 
-{% if site.publication_category %}
-  {% for category in site.publication_category %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
+{% raw %}{% if site.publication_category %}{% endraw %}
+  {% raw %}{% for category in site.publication_category %}{% endraw %}
+    {% raw %}{% assign title_shown = false %}{% endraw %}
+    {% raw %}{% for post in site.publications reversed %}{% endraw %}
+      {% raw %}{% if post.category != category[0] %}{% endraw %}
+        {% raw %}{% continue %}{% endraw %}
+      {% raw %}{% endif %}{% endraw %}
 
-      {% unless title_shown %}
+      {% raw %}{% unless title_shown %}{% endraw %}
         <h2>{{ category[1].title }}</h2>
         <hr />
-        {% assign title_shown = true %}
-      {% endunless %}
+        {% raw %}{% assign title_shown = true %}{% endraw %}
+      {% raw %}{% endunless %}{% endraw %}
+
+      {% comment %} Determine authors with fallbacks {% endcomment %}
+      {% raw %}{% assign authors_field = post.authors %}{% endraw %}
+      {% raw %}{% if authors_field == nil or authors_field == "" %}{% endraw %}
+        {% raw %}{% assign authors_field = post.author %}{% endraw %}
+      {% raw %}{% endif %}{% endraw %}
+      {% raw %}{% if authors_field == nil or authors_field == "" %}{% endraw %}
+        {% raw %}{% assign authors_field = site.author.name %}{% endraw %}
+      {% raw %}{% endif %}{% endraw %}
+      {% raw %}{% assign authors_list = authors_field | split: ", " %}{% endraw %}
 
       <div class="publication-entry">
-        {% comment %} split authors and bold Haoyue Li {% endcomment %}
-        {% assign authors_field = post.authors | default: post.author %}
-        {% assign authors_list = authors_field | split: ", " %}
         <span class="publication-authors">
-          {% for author in authors_list %}
-            {% if author == "Haoyue Li" %}
+          {% raw %}{% for author in authors_list %}{% endraw %}
+            {% raw %}{% if author == "Haoyue Li" %}{% endraw %}
               <strong>{{ author }}</strong>
-            {% else %}
+            {% raw %}{% else %}{% endraw %}
               {{ author }}
-            {% endif %}
-            {% unless forloop.last %}, {% endunless %}
-          {% endfor %}
+            {% raw %}{% endif %}{% endraw %}
+            {% raw %}{% unless forloop.last %}, {% endunless %}{% endraw %}
+          {% raw %}{% endfor %}{% endraw %}
         </span>
-        {% if post.category == "articles" or post.category == "conferences" %}
+        {% raw %}{% if post.category == "articles" or post.category == "conferences" %}{% endraw %}
           ({{ post.date | date: "%Y" }}).
-        {% else %}
+        {% raw %}{% else %}{% endraw %}
           .
-        {% endif %}
-        <em>
-          <a href="{{ post.paperurl }}">{{ post.title }}</a>
-        </em>.
+        {% raw %}{% endif %}{% endraw %}
+        <em><a href="{{ post.paperurl }}">{{ post.title }}</a></em>.
         {{ post.venue }}.
-        {% if post.slidesurl %}
+        {% raw %}{% if post.slidesurl %}{% endraw %}
           <a href="{{ post.slidesurl }}">[Slides]</a>
-        {% endif %}
-        {% if post.bibtexurl %}
+        {% raw %}{% endif %}{% endraw %}
+        {% raw %}{% if post.bibtexurl %}{% endraw %}
           <a href="{{ post.bibtexurl }}">[Bib]</a>
-        {% endif %}
+        {% raw %}{% endif %}{% endraw %}
       </div>
 
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
+    {% raw %}{% endfor %}{% endraw %}
+  {% raw %}{% endfor %}{% endraw %}
+{% raw %}{% else %}{% endraw %}
+  {% raw %}{% for post in site.publications reversed %}{% endraw %}
+    {% comment %} Fallback chain for ungrouped posts {% endcomment %}
+    {% raw %}{% assign authors_field = post.authors %}{% endraw %}
+    {% raw %}{% if authors_field == nil or authors_field == "" %}{% endraw %}
+      {% raw %}{% assign authors_field = post.author %}{% endraw %}
+    {% raw %}{% endif %}{% endraw %}
+    {% raw %}{% if authors_field == nil or authors_field == "" %}{% endraw %}
+      {% raw %}{% assign authors_field = site.author.name %}{% endraw %}
+    {% raw %}{% endif %}{% endraw %}
+    {% raw %}{% assign authors_list = authors_field | split: ", " %}{% endraw %}
+
     <div class="publication-entry">
-      {% assign authors_field = post.authors | default: post.author %}
-      {% assign authors_list = authors_field | split: ", " %}
       <span class="publication-authors">
-        {% for author in authors_list %}
-          {% if author == "Haoyue Li" %}
+        {% raw %}{% for author in authors_list %}{% endraw %}
+          {% raw %}{% if author == "Haoyue Li" %}{% endraw %}
             <strong>{{ author }}</strong>
-          {% else %}
+          {% raw %}{% else %}{% endraw %}
             {{ author }}
-          {% endif %}
-          {% unless forloop.last %}, {% endunless %}
-        {% endfor %}
+          {% raw %}{% endif %}{% endraw %}
+          {% raw %}{% unless forloop.last %}, {% endunless %}{% endraw %}
+        {% raw %}{% endfor %}{% endraw %}
       </span>
-      {% if post.category == "articles" or post.category == "conferences" %}
+      {% raw %}{% if post.category == "articles" or post.category == "conferences" %}{% endraw %}
         ({{ post.date | date: "%Y" }}).
-      {% else %}
+      {% raw %}{% else %}{% endraw %}
         .
-      {% endif %}
-      <em>
-        <a href="{{ post.paperurl }}">{{ post.title }}</a>
-      </em>.
+      {% raw %}{% endif %}{% endraw %}
+      <em><a href="{{ post.paperurl }}">{{ post.title }}</a></em>.
       {{ post.venue }}.
-      {% if post.slidesurl %}
+      {% raw %}{% if post.slidesurl %}{% endraw %}
         <a href="{{ post.slidesurl }}">[Slides]</a>
-      {% endif %}
-      {% if post.bibtexurl %}
+      {% raw %}{% endif %}{% endraw %}
+      {% raw %}{% if post.bibtexurl %}{% endraw %}
         <a href="{{ post.bibtexurl }}">[Bib]</a>
-      {% endif %}
+      {% raw %}{% endif %}{% endraw %}
     </div>
-  {% endfor %}
-{% endif %}
-
-
+  {% raw %}{% endfor %}{% endraw %}
+{% raw %}{% endif %}{% endraw %}
 
 
 
