@@ -1,0 +1,12 @@
+---
+title: "Integrating External Summary Information via James-Stein Shrinkage "
+collection: publications
+authors: Peisong Han, Haoyue Li, Jeremy MG Taylor
+category: articles
+permalink: /publication/JS-GLM
+date: 2025-12-28
+venue: 'Statistica Sinica'
+paperurl: 'https://www3.stat.sinica.edu.tw/ss_newpaper/SS-2025-0225_na.pdf'
+---
+Consider fitting a general parametric regression model, such as a generalized linear model, with individual data. It is common to have summary information, such as parameter estimates, available from external studies that use similar regression models. Many methods have been developed to incorporate this external information into internal model fitting to improve parameter estimation. Some of these methods aim to reduce estimation variance without introducing estimation bias that could result from study population heterogeneity. Others allow introduction of bias in exchange for substantial variance reduction, based on the bias-variance trade-off consideration. We take the latter approach and develop James-Stein shrinkage estimators to integrate the external information. These estimators can reduce the asymptotic risk compared to not using the external information, regardless of the degree of heterogeneity between internal and external
+populations. This is a highly desirable property as it provides a safe passage for the utility of external information. Few existing methods provide such a guaranteed improvement. We also conduct simulation studies and apply the method to a prostate cancer dataset to illustrate the numerical performance.
