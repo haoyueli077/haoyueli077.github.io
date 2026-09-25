@@ -29,21 +29,7 @@ author_profile: true
       {% endunless %}
 
       <div class="publication-entry">
-        {% assign authors_list = post.authors | split: ", " %}
-        <span class="publication-authors">
-          {% for author in authors_list %}
-            {% if author == "Haoyue Li" %}
-              <strong>{{ author }}</strong>
-            {% else %}
-              {{ author }}
-            {% endif %}
-            {% unless forloop.last %}, {% endunless %}
-          {% endfor %}
-        </span>
-        {% if post.category == "articles" or post.category == "conferences" %}
-          ({{ post.date | date: "%Y" }})
-        {% endif %}
-        . {% if post.paperurl %}<em><a href="{{ post.paperurl }}">{{ post.title }}</a></em>{% else %}<em>{{ post.title }}</em>{% endif %}. {{ post.venue }}.
+        <span class="publication-authors">{{ post.authors | replace: "Haoyue Li", "<strong>Haoyue Li</strong>" }}</span>{% if post.category == "articles" or post.category == "conferences" %} ({{ post.date | date: "%Y" }}){% endif %}. {% if post.paperurl %}<em><a href="{{ post.paperurl }}">{{ post.title }}</a></em>{% else %}<em>{{ post.title }}</em>{% endif %}. {{ post.venue }}.
         {% if post.slidesurl %}
           <a href="{{ post.slidesurl }}">[Slides]</a>
         {% endif %}
@@ -57,21 +43,7 @@ author_profile: true
 {% else %}
   {% for post in site.publications reversed %}
     <div class="publication-entry">
-      {% assign authors_list = post.authors | split: ", " %}
-      <span class="publication-authors">
-        {% for author in authors_list %}
-          {% if author == "Haoyue Li" %}
-            <strong>{{ author }}</strong>
-          {% else %}
-            {{ author }}
-          {% endif %}
-          {% unless forloop.last %}, {% endunless %}
-        {% endfor %}
-      </span>
-      {% if post.category == "articles" or post.category == "conferences" %}
-        ({{ post.date | date: "%Y" }})
-      {% endif %}
-      . {% if post.paperurl %}<em><a href="{{ post.paperurl }}">{{ post.title }}</a></em>{% else %}<em>{{ post.title }}</em>{% endif %}. {{ post.venue }}.
+      <span class="publication-authors">{{ post.authors | replace: "Haoyue Li", "<strong>Haoyue Li</strong>" }}</span>{% if post.category == "articles" or post.category == "conferences" %} ({{ post.date | date: "%Y" }}){% endif %}. {% if post.paperurl %}<em><a href="{{ post.paperurl }}">{{ post.title }}</a></em>{% else %}<em>{{ post.title }}</em>{% endif %}. {{ post.venue }}.
       {% if post.slidesurl %}
         <a href="{{ post.slidesurl }}">[Slides]</a>
       {% endif %}
