@@ -43,7 +43,7 @@ author_profile: true
         {% if post.category == "articles" or post.category == "conferences" %}
           ({{ post.date | date: "%Y" }})
         {% endif %}
-        . <em><a href="{{ post.paperurl }}">{{ post.title }}</a></em>. {{ post.venue }}.
+        . {% if post.paperurl %}<em><a href="{{ post.paperurl }}">{{ post.title }}</a></em>{% else %}<em>{{ post.title }}</em>{% endif %}. {{ post.venue }}.
         {% if post.slidesurl %}
           <a href="{{ post.slidesurl }}">[Slides]</a>
         {% endif %}
@@ -71,7 +71,7 @@ author_profile: true
       {% if post.category == "articles" or post.category == "conferences" %}
         ({{ post.date | date: "%Y" }})
       {% endif %}
-      . <em><a href="{{ post.paperurl }}">{{ post.title }}</a></em>. {{ post.venue }}.
+      . {% if post.paperurl %}<em><a href="{{ post.paperurl }}">{{ post.title }}</a></em>{% else %}<em>{{ post.title }}</em>{% endif %}. {{ post.venue }}.
       {% if post.slidesurl %}
         <a href="{{ post.slidesurl }}">[Slides]</a>
       {% endif %}
