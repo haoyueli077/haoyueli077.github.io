@@ -1,9 +1,11 @@
 ---
-title: "Uncertainty-Aware Transfer Learning via Stein’s Unbiased Risk Estimation"
-authors: Haoyue Li, Runze Li
+title: "Uncertainty-Aware SURE Transfer Learning for Logistic Regression"
+authors: Haoyue Li, S. Li, Runze Li
 collection: publications
-category: manuscripts
+category: conferences
 permalink: /publication/SURE-Trans
-venue: 'In preparation'
+date: 2026-09-25
+venue: "Advances in Neural Information Processing Systems"
 ---
 
+Poster at NeurIPS 2026.
