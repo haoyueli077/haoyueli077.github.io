@@ -9,9 +9,6 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* Ph.D in Statistics, Pennsylvania State University, 2028 (expected)
-* M.S. in Biostatistics, University of Michigan, 2023
-* B.S. in Economics, Nankai University, 2021
+[Open or download my CV (PDF)]({{ base_path }}/assets/Haoyue_Li_CV.pdf)
 
+<iframe src="{{ base_path }}/assets/Haoyue_Li_CV.pdf" title="Haoyue Li CV" style="width: 100%; height: 80vh; min-height: 600px; border: 0;" loading="lazy"></iframe>
